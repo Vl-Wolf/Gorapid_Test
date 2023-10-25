@@ -55,7 +55,7 @@ void UTT_HealthComponent::ChangeHealthValue(float ChangeValue)
 		}
 		else
 		{
-			if (Health < 0.0f)
+			if (Health <= 0.0f)
 			{
 				bIsAlive = false;
 				DeadEvent();

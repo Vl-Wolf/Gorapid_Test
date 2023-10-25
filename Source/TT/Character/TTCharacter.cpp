@@ -49,8 +49,6 @@ ATTCharacter::ATTCharacter()
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
 
-	bReplicates = true;
-
 	if (Health)
 	{
 		Health->OnDead.AddDynamic(this, &ATTCharacter::CharacterDead);
