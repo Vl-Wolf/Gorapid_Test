@@ -14,8 +14,20 @@ class TT_API ATT_Enemy : public ACharacter
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this character's properties
+	
+	UFUNCTION()
+	void InitWeapon(FName WeaponName, FAdditionalWeaponInfo AdditionalWeaponInfo, int32 NewCurrentIndexWeapon);
+	
 	ATT_Enemy();
+
+	UFUNCTION()
+	UTT_InventoryComponent* GetInventoryComponent() const
+	{
+		return InventoryComponent;
+	}
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category="Inventory")
+	TArray<FWeaponSlot> WeaponSlot;
 
 protected:
 	// Called when the game starts or when spawned
@@ -26,6 +38,12 @@ protected:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Inventory", meta=(AllowPrivateAccess="true"))
 	UTT_InventoryComponent* InventoryComponent;
+
+	UPROPERTY()
+	AWeaponDefault* CurrentWeapon = nullptr;
+
+	UPROPERTY()
+	int32 CurrentIndexWeapon = 0;
 
 	virtual float TakeDamage(float DamageAmount, FDamageEvent const& DamageEvent, AController* EventInstigator, AActor* DamageCauser) override;
 
@@ -43,6 +61,26 @@ protected:
 
 	UFUNCTION(BlueprintCallable)
 	void EnableRagdoll();
+
+	UFUNCTION()
+	void WeaponReloadStart(UAnimMontage* Anim);
+	UFUNCTION()
+	void WeaponReloadEnd(bool bIsSuccess, int32 AmmoSafe);
+	UFUNCTION()
+	void WeaponFire(UAnimMontage* Anim);
+
+	UFUNCTION(BlueprintNativeEvent)
+	void WeaponReloadStart_BP(UAnimMontage* Anim);
+	UFUNCTION(BlueprintNativeEvent)
+	void WeaponReloadEnd_BP(bool bIsSuccess);
+	UFUNCTION(BlueprintNativeEvent)
+	void WeaponFire_BP(UAnimMontage* Anim);
+
+	UFUNCTION()
+	void AttackEvent(bool bIsFiring);
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	AWeaponDefault* GetCurrentWeapon();
 
 public:
 	// Called every frame

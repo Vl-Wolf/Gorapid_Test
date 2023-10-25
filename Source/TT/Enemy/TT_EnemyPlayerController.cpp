@@ -3,6 +3,9 @@
 
 #include "TT_EnemyPlayerController.h"
 
+#include "TT_Enemy.h"
+#include "TT/Game/TT_PlayerState.h"
+
 
 // Sets default values
 ATT_EnemyPlayerController::ATT_EnemyPlayerController()
@@ -16,6 +19,17 @@ void ATT_EnemyPlayerController::BeginPlay()
 {
 	Super::BeginPlay();
 	
+}
+
+void ATT_EnemyPlayerController::OnPossess(APawn* InPawn)
+{
+	Super::OnPossess(InPawn);
+
+	ATT_Enemy* MyEnemy = Cast<ATT_Enemy>(InPawn);
+	if (MyEnemy)
+	{
+		MyEnemy->GetInventoryComponent()->InitInventory(MyEnemy->WeaponSlot);
+	}
 }
 
 // Called every frame
