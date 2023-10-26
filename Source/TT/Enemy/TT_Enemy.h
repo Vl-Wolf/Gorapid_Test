@@ -76,7 +76,7 @@ protected:
 	UFUNCTION(BlueprintNativeEvent)
 	void WeaponFire_BP(UAnimMontage* Anim);
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void AttackEvent(bool bIsFiring);
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
