@@ -26,6 +26,13 @@ enum class EMovementState : uint8
 };
 
 UENUM(BlueprintType)
+enum class EBehaviorState : uint8
+{
+	Wait_State UMETA(DisplayName = "Wait State"),
+	Aggressive_State UMETA(DisplayName = "Aggressive State"),
+};
+
+UENUM(BlueprintType)
 enum class EWeaponType : uint8
 {
 	RifleType UMETA(DisplayName = "Rifle"),

@@ -196,6 +196,16 @@ AWeaponDefault* ATT_Enemy::GetCurrentWeapon()
 	return CurrentWeapon;
 }
 
+EBehaviorState ATT_Enemy::GetBehaviorState()
+{
+	return BehaviorState;
+}
+
+void ATT_Enemy::SetBehaviorState(EBehaviorState NewBehaviorState)
+{
+	BehaviorState = NewBehaviorState;
+}
+
 // Called every frame
 void ATT_Enemy::Tick(float DeltaTime)
 {

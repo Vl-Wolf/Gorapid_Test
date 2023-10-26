@@ -6,6 +6,7 @@
 #include "GameFramework/Character.h"
 #include "TT/Character/TT_HealthComponent.h"
 #include "TT/Character/TT_InventoryComponent.h"
+#include "TT/FuncLibrary/Types.h"
 #include "TT_Enemy.generated.h"
 
 UCLASS()
@@ -81,6 +82,15 @@ protected:
 
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	AWeaponDefault* GetCurrentWeapon();
+
+	UPROPERTY()
+	EBehaviorState BehaviorState = EBehaviorState::Wait_State;
+
+	UFUNCTION(BlueprintCallable, BlueprintPure)
+	EBehaviorState GetBehaviorState();
+
+	UFUNCTION(BlueprintCallable)
+	void SetBehaviorState(EBehaviorState NewBehaviorState);
 
 public:
 	// Called every frame
