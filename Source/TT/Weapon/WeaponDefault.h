@@ -109,7 +109,5 @@ public:
 	void SpawnTraceHitFX(UNiagaraSystem* FX, FHitResult HitResult);
 	UFUNCTION()
 	void SpawnTraceHitSound(USoundBase* HitSound, FHitResult HitResult);
-
-	//virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
-	
+		
 };
