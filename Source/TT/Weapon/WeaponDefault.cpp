@@ -85,7 +85,7 @@ void AWeaponDefault::ReloadTick(float DeltaTime)
 
 void AWeaponDefault::WeaponInit()
 {
-	if (SkeletalMeshWeapon && !SkeletalMeshWeapon->SkeletalMesh)
+	if (SkeletalMeshWeapon && !SkeletalMeshWeapon->GetSkeletalMeshAsset())
 	{
 		SkeletalMeshWeapon->DestroyComponent(true);
 	}
