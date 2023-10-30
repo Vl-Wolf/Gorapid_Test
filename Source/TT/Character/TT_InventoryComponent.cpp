@@ -8,8 +8,7 @@
 UTT_InventoryComponent::UTT_InventoryComponent()
 {
 	PrimaryComponentTick.bCanEverTick = true;
-
-	SetIsReplicatedByDefault(true);
+	
 }
 
 void UTT_InventoryComponent::BeginPlay()

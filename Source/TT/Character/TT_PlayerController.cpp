@@ -23,7 +23,7 @@ void ATT_PlayerController::OnPossess(APawn* InPawn)
 
 ATT_PlayerController::ATT_PlayerController()
 {
-	this->bReplicates = true;
+	
 }
 
 void ATT_PlayerController::SetupInputComponent()

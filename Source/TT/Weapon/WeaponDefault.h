@@ -83,11 +83,13 @@ public:
 	UFUNCTION(BlueprintCallable)
 	int32 GetWeaponRound();
 
-	UFUNCTION()
+	UFUNCTION(BlueprintCallable)
 	void InitReload();
 	void FinishReload();
+	UFUNCTION(BlueprintCallable)
 	void CancelReload();
 
+	UFUNCTION(BlueprintCallable)
 	bool CheckCanWeaponReload();
 
 	int8 GetAvailableAmmoForReload();
